@@ -1,0 +1,47 @@
+---
+title: 'Endpoint Schema Snippet'
+description: 'Reference an endpoint schema from your API Reference'
+---
+
+The `EndpointSchemaSnippet` component is used to reference an endpoint's schema from 
+your API Reference. Below are examples of referencing the schema for the `POST /snippets` endpoint.
+
+If you want to reference a particular piece of the schema, you can use the optional `selector` prop
+to specify the path to the schema you want to reference. The available selectors are: `request`,
+`request.path`, `request.query`, `request.body`, `response`, and `response.body`.
+
+<Tabs>
+  <Tab title="Request">
+    Passing `request` as the selector will only render the request schema.
+    
+    The following markdown:
+    ```jsx
+    <EndpointSchemaSnippet endpoint="POST /snippets" selector="request" />
+    ```
+    will be rendered as:
+    <EndpointSchemaSnippet endpoint="POST /snippets" selector="request" />
+  </Tab>
+  <Tab title="Response">
+    The following markdown:
+    ```jsx
+    <EndpointSchemaSnippet endpoint="POST /snippets" selector="response" />
+    ```
+    will be rendered as:
+    <EndpointSchemaSnippet endpoint="POST /snippets" selector="response" />
+  </Tab>
+  <Tab title="Full Schema">
+    
+    Passing no selector will render the entire schema. The following markdown:
+    ```jsx
+    <EndpointSchemaSnippet endpoint="POST /snippets" />
+    ```
+    will be rendered as:
+    <EndpointSchemaSnippet endpoint="POST /snippets" />
+  </Tab>
+</Tabs>
+
+<Warning>
+  The EndpointSchemaSnippet component does not yet support rendering markdown-rich field descriptions.
+  
+  See [request.endpoint.path](/docs/content/components/schema-snippet#request.endpoint.path) above for an example of a markdown-rich description that does not yet render as markdown.
+</Warning>
